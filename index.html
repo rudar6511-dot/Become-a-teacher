@@ -83,9 +83,18 @@ const buttonScenes={
 function buttonSceneData(b){
 let id=b.id||"";
 if(buttonScenes[id])return buttonScenes[id];
-if(b.dataset.life){let map={school:["🏫","School Campus","Study for your next exam and build your education.","EDUCATION"],college:["🎓","College Scene","Attend your lecture and move closer to your teaching career.","EDUCATION"],library:["📚","Library Scene","Read a teaching book and sharpen your professional knowledge.","KNOWLEDGE"],training:["🧑‍🏫","Training Center","Practice teaching techniques and improve your skill.","TRAINING"],class:["👩‍🏫","Classroom Scene","Teach a live class and earn teaching rewards.","TEACHING"],staff:["🧑‍💼","Staff Room","Plan lessons with your colleagues and gain career XP.","CAREER"],home:["🏠","Family Home","Relax and recover before the next stage of your journey.","HOME"],market:["🛒","Market Scene","Visit the city market and manage your daily virtual supplies.","CITY LIFE"],car:["🚗","City Drive","Take your teacher car around the virtual city.","CITY LIFE"],park:["🌳","City Park","Take a peaceful break and return with fresh energy.","CITY LIFE"],office:["💼","Principal Office","Work toward your next career promotion.","CAREER"],academy:["🏛️","Your Academy","Run your own academy and build your dream teaching life.","DREAM LIFE"]};return map[b.dataset.life]||["🎮","Life Scene","A new part of your virtual life opens.","LIFE"];}}
-if(b.dataset.scene){let map={school:["🏫","School World","Explore your school campus.","WORLD"],college:["🎓","College World","Explore your college life.","WORLD"],training:["📚","Training World","Enter teacher training.","WORLD"],class:["🧑‍🏫","Classroom World","Enter the classroom.","WORLD"],home:["🏠","Home World","Enter your home.","WORLD"],city:["🚗","City World","Explore city life.","WORLD"]};return map[b.dataset.scene];}
-if(b.dataset.action){let map={study:["📖","Campus Study","Study on campus and increase education.","WORLD ACTION"],lecture:["🎓","Lecture Hall","Attend the lecture and gain education.","WORLD ACTION"],train:["💡","Practice Room","Practice teaching and improve skill.","WORLD ACTION"],teach:["🧑‍🏫","Live Class","Start teaching students.","WORLD ACTION"],rest:["🛋️","Relaxing Home","Rest at home and recover.","WORLD ACTION"],drive:["🚗","City Road","Drive through the city.","WORLD ACTION"]};return map[b.dataset.action];}
+if(b.dataset.life){
+let map={school:["🏫","School Campus","Study for your next exam and build your education.","EDUCATION"],college:["🎓","College Scene","Attend your lecture and move closer to your teaching career.","EDUCATION"],library:["📚","Library Scene","Read a teaching book and sharpen your professional knowledge.","KNOWLEDGE"],training:["🧑‍🏫","Training Center","Practice teaching techniques and improve your skill.","TRAINING"],class:["👩‍🏫","Classroom Scene","Teach a live class and earn teaching rewards.","TEACHING"],staff:["🧑‍💼","Staff Room","Plan lessons with your colleagues and gain career XP.","CAREER"],home:["🏠","Family Home","Relax and recover before the next stage of your journey.","HOME"],market:["🛒","Market Scene","Visit the city market and manage your daily virtual supplies.","CITY LIFE"],car:["🚗","City Drive","Take your teacher car around the virtual city.","CITY LIFE"],park:["🌳","City Park","Take a peaceful break and return with fresh energy.","CITY LIFE"],office:["💼","Principal Office","Work toward your next career promotion.","CAREER"],academy:["🏛️","Your Academy","Run your own academy and build your dream teaching life.","DREAM LIFE"]};
+return map[b.dataset.life]||["🎮","Life Scene","A new part of your virtual life opens.","LIFE"];
+}
+if(b.dataset.scene){
+let map={school:["🏫","School World","Explore your school campus.","WORLD"],college:["🎓","College World","Explore your college life.","WORLD"],training:["📚","Training World","Enter teacher training.","WORLD"],class:["🧑‍🏫","Classroom World","Enter the classroom.","WORLD"],home:["🏠","Home World","Enter your home.","WORLD"],city:["🚗","City World","Explore city life.","WORLD"]};
+return map[b.dataset.scene];
+}
+if(b.dataset.action){
+let map={study:["📖","Campus Study","Study on campus and increase education.","WORLD ACTION"],lecture:["🎓","Lecture Hall","Attend the lecture and gain education.","WORLD ACTION"],train:["💡","Practice Room","Practice teaching and improve skill.","WORLD ACTION"],teach:["🧑‍🏫","Live Class","Start teaching students.","TEACHING"],rest:["🛋️","Relaxing Home","Rest at home and recover.","WORLD ACTION"],drive:["🚗","City Road","Drive through the city.","WORLD ACTION"]};
+return map[b.dataset.action];
+}
 if(b.dataset.m!==undefined)return["🎯","Mission Scene","Choose your approach and complete this life mission.","MISSION"];
 if(b.dataset.buy!==undefined)return["🛍️","Character Purchase","A new character is ready to join your life journey.","SHOP"];
 if(b.dataset.use!==undefined)return["⭐","Character Selection","Your selected character is entering the journey.","CHARACTER"];
@@ -94,7 +103,7 @@ if(b.dataset.filter)return["🗂️","Character Collection","Switch the collecti
 if(b.dataset.look)return["✨","Customization Scene","Change your character's visual style.","CUSTOMIZATION"];
 if(id==="promoteBtn")return["⬆️","Promotion Office","Your career is ready for its next professional stage.","CAREER"];
 if(b.classList.contains("sceneBack"))return["🌍","Life World","Return to the world map and choose another location.","WORLD"];
-if(b.classList.contains("choice"))return["🎯","Mission Choice","Your decision will shape this mission's reward.","MISSION"];
+if(b.classList.contains("choice"))return["🎯","Mission Choice","Your decision will shape this life mission.","MISSION"];
 return["🎮","Life Action","This button opens its own interactive life scene.","ACTION"];
 }
 function showButtonScene(b){
