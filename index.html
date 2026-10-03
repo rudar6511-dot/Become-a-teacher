@@ -9,6 +9,29 @@ section{margin-top:28px}h2{margin:0 0 13px;font-size:27px}.journey{display:grid;
 @media(max-width:850px){.hero{grid-template-columns:1fr}.journey{grid-template-columns:repeat(3,1fr)}.shopgrid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:550px){main{padding:14px 12px 45px}.card{padding:17px;border-radius:19px}.grid,.shopgrid{grid-template-columns:1fr}.journey{grid-template-columns:repeat(2,1fr)}h1{font-size:43px}}
 .lifegrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.scene{min-height:220px;border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(145deg,#142e4b,#0b1829);position:relative;overflow:hidden}.scene .big{font-size:58px}.roomart{display:flex;gap:14px;align-items:center;justify-content:center;height:130px;font-size:50px}.meter{height:9px;background:#07111f;border-radius:99px;overflow:hidden;margin:9px 0}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:.5s}.custom{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.custom button{padding:12px;border:1px solid var(--line);border-radius:12px;background:#12243c;color:#fff}.custom button.active{border-color:var(--cyan);background:#203c5d}@media(max-width:700px){.lifegrid{grid-template-columns:1fr}.custom{grid-template-columns:repeat(2,1fr)}}
 .classroom{position:relative;height:190px;border-radius:15px;background:linear-gradient(#173b5b 0 62%,#6b5139 62%);overflow:hidden;margin:12px 0}.board{position:absolute;top:14px;left:12%;width:76%;height:65px;background:#173d39;border:5px solid #8b6845;border-radius:7px;color:#dfffe8;text-align:center;padding:12px;font-weight:900}.desk{position:absolute;bottom:18px;width:62px;height:30px;background:#9a6945;border-radius:5px}.d1{left:9%}.d2{left:34%}.d3{left:59%}.student{position:absolute;bottom:49px;font-size:30px;animation:bob 1.5s ease-in-out infinite}.s1{left:13%}.s2{left:38%;animation-delay:.2s}.s3{left:63%;animation-delay:.4s}.teacherWalk{position:absolute;bottom:49px;left:18px;font-size:38px;transition:left 1s ease;z-index:2}@keyframes bob{50%{transform:translateY(-5px)}}.expense{color:#ffb4b4;font-weight:800}.promotion{border-color:#a78bfa!important;background:#211d42!important}.salaryBox{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}.sceneBtn{margin-top:8px}
+</style><style id="unique-theme">
+:root{--ink:#f5f7ff;--muted:#aeb8d4;--glass:rgba(16,22,45,.72);--line:rgba(255,255,255,.1);--cyan:#52e5ff;--violet:#9b7bff;--pink:#ff6fb5;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#080b18;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(80px);opacity:.28;pointer-events:none;z-index:-1}
+body:before{width:360px;height:360px;background:#573cff;top:-130px;left:-100px}body:after{width:400px;height:400px;background:#ff3c9d;right:-160px;bottom:-120px}
+header{background:rgba(7,10,25,.78)!important;border-bottom:1px solid var(--line)!important;backdrop-filter:blur(18px);box-shadow:0 10px 40px #0005}
+main,.wrap,section{position:relative}section,.card,.scene,.custom,.promotion{border:1px solid var(--line)!important;background:var(--glass)!important;box-shadow:0 18px 60px #0005!important;backdrop-filter:blur(14px);border-radius:24px!important}
+h1{font-size:clamp(42px,7vw,82px)!important;letter-spacing:-3px!important;line-height:.95!important;background:linear-gradient(90deg,#fff,var(--cyan),#c6a8ff);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+h2{letter-spacing:-1px}.small{color:var(--muted)!important}
+.btn{border:1px solid #ffffff22!important;border-radius:14px!important;transition:.2s!important;box-shadow:0 8px 25px #0003!important}.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 35px #0006!important}
+.primary{background:linear-gradient(135deg,#5b4cff,#9b55ff)!important}.gold{background:linear-gradient(135deg,#ff9d3d,#ffd166)!important;color:#241600!important}
+.hero{border:0!important;background:radial-gradient(circle at 75% 30%,#4936ff44,transparent 30%),linear-gradient(135deg,#10152e,#0b1022)!important;overflow:hidden}
+.hero:after{content:"✦  ✦  ✦";position:absolute;right:6%;top:15%;font-size:40px;letter-spacing:28px;color:#ffffff22;animation:floatStars 4s ease-in-out infinite}
+.avatar{filter:drop-shadow(0 0 22px #55eaff88);animation:heroFloat 3s ease-in-out infinite}
+.wallet,.pill{background:#ffffff0c!important;border:1px solid var(--line)!important;border-radius:14px!important}
+.meter{background:#ffffff12!important;border-radius:99px!important}.meter>i{background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink))!important}
+.classroom{background:linear-gradient(#18265a 0 60%,#49352c 60%)!important;border:1px solid #ffffff18;box-shadow:inset 0 0 50px #0008!important}
+.board{box-shadow:0 0 30px #52e5ff22;border-color:#aa8a61!important}
+.student{filter:drop-shadow(0 5px 8px #0007)}.teacherWalk{filter:drop-shadow(0 0 14px #52e5ff88)}
+.scene{overflow:hidden}.scene:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,#52e5ff08,#9b7bff08,#ff6fb508);pointer-events:none}
+.tab.active{background:linear-gradient(135deg,#5b4cff,#e05aff)!important;color:white!important}
+@keyframes heroFloat{50%{transform:translateY(-10px) rotate(1deg)}}@keyframes floatStars{50%{transform:translateY(12px) rotate(4deg);opacity:.65}}
+@media(max-width:700px){h1{letter-spacing:-2px!important}.hero{padding:24px!important}section,.card{border-radius:18px!important}}
 </style></head><body>
 <header><div class="nav"><div class="brand">BECOME <b>A TEACHER</b> 🎓</div><div class="wallet"><div class="pill">🪙 <span id="coins">1000</span></div><div class="pill">⭐ Level <span id="level">1</span></div></div></div></header>
 <main>
