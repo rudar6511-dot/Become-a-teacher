@@ -110,9 +110,20 @@ const chars=[["starter","Campus Kid","🧑‍🎓","student",0,"Balanced starter
 const missions=[["Pass a School Test","📝","Complete a study challenge.",180,10,2,1],["Read 3 Chapters","📖","Build a strong knowledge base.",220,12,3,1],["College Assignment","💻","Finish an academic assignment.",300,10,5,1],["Teacher Training","🧠","Practice explaining a topic.",350,5,12,2],["Teach Your First Class","🏫","Complete your first classroom mission.",500,2,15,2],["Earn Your First Salary","💰","Work a virtual teaching week.",700,0,8,2],["Improve Your Classroom","🪑","Upgrade your teaching environment.",550,2,10,2],["Mentor 10 Students","🌟","Help students improve.",900,3,15,3],["Senior Teacher Exam","🏆","Pass the promotion challenge.",1200,8,15,3],["Lead a School Project","🚀","Take responsibility for a big project.",1500,5,18,4],["Build Your Reputation","📣","Become known for excellent teaching.",1800,2,20,4],["Dream Career","👑","Reach the top of your teaching journey.",2500,5,20,5]];
 const assets=[["room","Starter Room","🛏️",0,"Your room includes the 1,000-coin welcome bonus."],["desk","Study Desk","🖥️",700,"A better setup for lesson planning."],["home","Family Home","🏠",5000,"A comfortable virtual home."],["car","Teacher Car","🚗",8500,"Your first virtual car."],["villa","Dream Villa","🏡",18000,"A premium home for a top teacher."],["school","Your Academy","🏫",30000,"Build a virtual academy."]];
 let s={coins:1000,level:1,education:0,skill:0,xp:0,mission:0,ownedChars:["starter"],selected:"starter",ownedAssets:["room"],months:0,lastSalary:0,skin:"classic",outfit:"teacher",promotions:0};
-try{s={...s,...JSON.parse(localStorage.getItem("bat_save")||"{}")}catch(e){}
+try{s={...s,...JSON.parse(localStorage.getItem("bat_save")||"{}")}catch(e){localStorage.removeItem("bat_save")}
+if(!Array.isArray(s.ownedChars))s.ownedChars=["starter"];
+if(!Array.isArray(s.ownedAssets))s.ownedAssets=["room"];
+if(typeof s.coins!=="number")s.coins=1000;
+if(typeof s.level!=="number")s.level=1;
+if(typeof s.education!=="number")s.education=0;
+if(typeof s.skill!=="number")s.skill=0;
+if(typeof s.xp!=="number")s.xp=0;
+if(typeof s.mission!=="number")s.mission=0;
+if(typeof s.promotions!=="number")s.promotions=0;
 const $=id=>document.getElementById(id);function save(){try{localStorage.setItem("bat_save",JSON.stringify(s))}catch(e){}}
 function toast(x){$("toast").textContent=x;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2200)}
+window.addEventListener("error",e=>{console.error(e.error||e.message);let t=document.getElementById("toast");if(t){t.textContent="Game error: "+e.message;t.classList.add("show")}});
+window.addEventListener("unhandledrejection",e=>{console.error(e.reason);let t=document.getElementById("toast");if(t){t.textContent="Game error: action failed";t.classList.add("show")}});
 function salary(){let base=400+Math.min(2200,s.level*180)+Math.min(1200,s.skill*8);let rankBonus=s.promotions*350;let bonus=s.selected==="mentor"?Math.round(base*.12):s.selected==="legend"?Math.round(base*.20):0;return base+rankBonus+bonus}
 function monthlyExpense(){return 80+s.ownedAssets.length*35+s.promotions*25}
 function payExpenses(){let cost=monthlyExpense();if(s.coins<cost){toast("You cannot cover this month's expenses yet.");return false}s.coins-=cost;return true}
