@@ -356,6 +356,9 @@ function resetDrive(show){
  if(!driveGame)return;
  const v=cityVehicles[cityVehicle],d=cityDestinations[cityDestination];
  if(driveGame.player)driveGame.scene.remove(driveGame.player);
+ if(driveGame.traffic)driveGame.traffic.forEach(t=>driveGame.scene.remove(t.mesh));
+ if(driveGame.rain){driveGame.scene.remove(driveGame.rain);driveGame.rain=null;}
+ if(driveGame.destMarker){driveGame.scene.remove(driveGame.destMarker);driveGame.destMarker=null;}
  driveGame.player=cityV3(cityVehicle);driveGame.player.position.set(0,0,980);driveGame.player.rotation.y=Math.PI;driveGame.scene.add(driveGame.player);
  driveGame.speed=0;driveGame.fuel=100;driveGame.distance=0;driveGame.light=false;driveGame.weather=Math.random()<.22?"🌧️ Rain":"☀️ Day";driveGame.last=performance.now();driveGame.v=v;driveGame.d=d;driveGame.traffic=makeTraffic3D();
  makeDestinationMarker();if(driveGame.weather==="🌧️ Rain")addRain();
